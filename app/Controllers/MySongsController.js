@@ -32,4 +32,13 @@ export default class MySongsController {
       console.error(error)
     }
   }
+
+  async removeSong() {
+    try {
+      await mySongsService.removeSong()
+    } catch (error) {
+      console.log(error)
+
+    }
+  }
 }

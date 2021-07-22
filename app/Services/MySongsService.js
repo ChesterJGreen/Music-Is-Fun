@@ -4,6 +4,13 @@ import { sandBoxApi } from "./AxiosService.js";
 import { itunesApi } from "./AxiosService.js"
 
 class MySongsService {
+  async removeSong() {
+    const res = await sandBoxApi.delete(ProxyState.activeSong.id)
+    ProxyState.playlist = ProxyState.playlist.filter(s => s.id != ProxyState.activeSong.id)
+    ProxyState.activeSong = null
+    console.log(res.data)
+
+  }
 
   async getMySongs() {
     const res = await sandBoxApi.get()

@@ -1,3 +1,5 @@
+import { ProxyState } from "../AppState.js";
+
 export default class Song {
   constructor(data) {
     this.title = data.trackName || data.title;
@@ -19,7 +21,7 @@ export default class Song {
       <audio controls>
         <source src="${this.preview}" type="audio/m4a">
       </audio>
-      <button type="button" class="btn btn-info" onclick="app.mySongsController.addSong()">Get Song</button>
+      ${this.Button}
 
     </div>
   </div>
@@ -27,9 +29,12 @@ export default class Song {
         `;
   }
 
-  get playlistTemplate() {
-    return `
-
-        `;
+  get Button() {
+    const exists = ProxyState.playlist.find(s => s.id === ProxyState.activeSong.id)
+    if (this.id) {
+      return `
+    <button type="button" class="btn btn-info" ${exists ? 'disabled' : ''} onclick="app.mySongsController.addSong()">Get Song</button>`;
+    }
+    return `<button type="button" class="btn btn-danger" onclick="app.mySongsController.removeSong()">Remove</button>`
   }
 }
