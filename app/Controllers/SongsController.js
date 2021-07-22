@@ -8,7 +8,7 @@ function _drawResults() {
   let template = ''
   songs.forEach(s => template += `
  <div class="card my-3" style="width: 18rem; my-2">
-  <img src="${s.albumArt}" class="action card-img-left" alt="${s.album}" onclick="app.songsController.getActive(${s._id})">
+  <img src="${s.albumArt}" class="action card-img-left" alt="${s.album}" onclick="app.songsController.getActive(${s.id})">
   <div class="card-body">
     <h5 class="card-title">${s.title}</h5>
     <p class="card-text">${s.artist}</p>

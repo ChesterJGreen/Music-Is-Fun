@@ -7,7 +7,7 @@ export default class Song {
     this.album = data.collectionName || data.album;
     this.price = data.trackPrice || data.price;
     this.preview = data.previewUrl || data.preview;
-    this._id = data.trackId || data._id;
+    this.id = data.trackId || data._id;
   }
 
   get Template() {
@@ -19,6 +19,8 @@ export default class Song {
       <audio controls>
         <source src="${this.preview}" type="audio/m4a">
       </audio>
+      <button type="button" class="btn btn-info" onclick="app.mySongsController.addSong()">Get Song</button>
+
     </div>
   </div>
 
