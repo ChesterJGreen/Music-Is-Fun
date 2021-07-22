@@ -1,7 +1,7 @@
 import { ProxyState } from "../AppState.js";
 import Song from "../Models/Song.js";
 import { sandBoxApi } from "./AxiosService.js";
-
+import { itunesApi } from "./AxiosService.js"
 class SongsService {
   /**
    * Takes in a search query and retrieves the results that will be put in the store
@@ -14,6 +14,7 @@ class SongsService {
     $.getJSON(url)
       .then(res => {
         ProxyState.songs = res.results.map(rawData => new Song(rawData));
+        console.log(res.results)
       })
       .catch(err => {
         throw new Error(err);
@@ -44,6 +45,14 @@ class SongsService {
    */
   removeSong(id) {
     //TODO Send the id to be deleted from the server then update the store
+  }
+
+  async getActive(id) {
+    console.log('getActive', id)
+    let res = await itunesApi.get('?term=' + id)
+    console.log(res.data.results)
+    ProxyState.activeSong = new Song(res.data.results[0])
+
   }
 }
 
