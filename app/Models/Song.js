@@ -24,8 +24,8 @@ export default class Song {
     <div class="card-body">
       <h5 class="card-title">${this.title}</h5>
       <p class="card-text">${this.artist}</p>
-      <audio controls>
-        <source src="${this.preview}" type="audio/m4a">
+      <audio src="${this.preview}" type="audio/mpeg" controls>
+      
       </audio>
       ${this.Button}
 
