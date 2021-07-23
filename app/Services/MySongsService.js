@@ -18,13 +18,15 @@ class MySongsService {
     ProxyState.playlist = res.data.map(s => new Song(s))
   }
   async addSong() {
+    //NOTE  need an if statement to see if the active song = any song in the playlist
     const res = await sandBoxApi.post('', ProxyState.activeSong)
     console.log(res.data);
     const mySong = new Song(res.data)
     ProxyState.playlist = [...ProxyState.playlist, mySong]
     ProxyState.activeSong = mySong
   }
-
 }
+
+
 
 export const mySongsService = new MySongsService()
