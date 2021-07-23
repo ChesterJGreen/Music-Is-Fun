@@ -14,12 +14,12 @@ export default class Song {
     this.wrapperType = data.wrapperType
 
     if (data.kind = "music") { return data.kind } { }
-    if (data.wrapperType != "audiobook") { return data.wrapperType } { }
+    if (data.wrapperType != "audiobook") { return data } { }
   }
 
 
   get Template() {
-    return `<div class="card my-3" style="width: 32rem; my-2">
+    return `<div class="card my-3" style="width: auto; my-2">
     <img src="${this.albumArt}" class="action card-img-left" alt="${this.album}">
     <div class="card-body">
       <h5 class="card-title">${this.title}</h5>

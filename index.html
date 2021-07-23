@@ -27,7 +27,7 @@
     }
 </style>
 
-<body class="debug">
+<body class="">
     <header>
         <nav class="navbar navbar-dark navbar-expand bg-primary text-light">
             <a class="navbar-brand" href="#">
@@ -36,56 +36,78 @@
             </a>
         </nav>
     </header>
-    <main class="container-fluid">
-        <section class="row">
-            <div class="col-12 bannerStyle">
-                <p>Music is Fun</p>
-            </div>
-            <div class="offset-10 col-2">
-                <form onsubmit="app.songsController.search(event)">
-                    <input type="text" class="form-control" name="query" placeholder="Search For Music" />
-                    <button class="btn btn-success mt-1 form-control" type="submit">
-                        Search
-                    </button>
-                </form>
-            </div>
-        </section>
-
-        <section class="row">
-            <div class="col-3">
-                <h3 class="text-center">Search Results</h3>
-                <div id="songs" class="col-12 m-0 height-100vh">
-                    <div class="col-3 align-self-center justify-content-end" id="button">
-                        <img class="btn-image" src="">
-
+    <div class="demo-wrap">
+        <main class="container-fluid">
+            <div class="demo-content">
+                <section class="row mb-3">
+                    <div class="col-8 ">
+                        <p>Music is Fun</p>
                     </div>
-                    <!-- template to generate -->
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col-8 border bg-primary">
-                        <h4 class="text-center">Now Playing</h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col-8">
-                        <div class="d-flex justify-content-center" id="active-song">
+                    <div class=" col-4">
+                        <div class="col-row">
+                            <div class="offset-4 col-8 mt-2">
+
+                                <form onsubmit="app.songsController.search(event)">
+
+                                    <input type="text" class="form" name="query" placeholder="Search For Music" />
+
+                                    <button class="btn btn-success form-inline" type="submit">
+                                        Search
+                                    </button>
+
+
+                                </form>
+                            </div>
+
                         </div>
-                        <div class="col-2"></div>
                     </div>
-                </div>
+                </section>
+                <section class="row px-3">
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-12 border bg-secondary shadow rounded">
+                                <h3 class="text-center text-light">Search Results</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 side-bar-scroll image-center" id="songs">
+
+                            </div>
+                        </div>
+                        <!-- template to generate -->
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-2"></div>
+                            <div class="col-8 border bg-primary shadow rounded">
+                                <h2 class="text-center text-light">Now Playing</h2>
+                            </div>
+                        </div>
+                        <div class="row px-3">
+                            <div class="offset-2 col-8 bg-light">
+                                <div class="d-flex justify-content-center active-screen-h" id="active-song">
+                                </div>
+                                <div class="col-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-12 bg-info border shadow rounded">
+                                <h3 class="text-center text-light">Playlist</h3>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3 bg-light rounded shadow" id="playlist">
+                            < for playlist -->
+                        </div>
+                    </div>
+                </section>
             </div>
-            <div class="col-3">
-                <h3 class="text-center">Playlist</h3>
-                <div class="col-12 m-0" id="playlist">
-                    < for playlist -->
-                </div>
-            </div>
-        </section>
-    </main>
+        </main>
+
+
+
+    </div>
     <footer class="container-fluid bg-dark text-light">
         <div class="row text-center">
             <div class="col">

@@ -7,14 +7,23 @@ function _drawResults() {
   const songs = ProxyState.songs
   let template = ''
   songs.forEach(s => template += `
- <div class="card my-3" style="width: 18rem; my-2">
-  <img src="${s.albumArt}" class="action card-img-left" alt="${s.album}" onclick="app.songsController.getActive(${s.id})">
-  <div class="card-body">
-    <h5 class="card-title">${s.title}</h5>
-    <p class="card-text">${s.artist}</p>
-  </div>
-</div>
- `)
+    <div class="row bg-light border" >
+      <div class="col-3 align-self-center">
+        <img src="${s.albumArt}" class="action  w-100" alt="${s.album}" onclick="app.songsController.getActive(${s.id})">
+        </div>
+        <div class="col-9">
+          <p>${s.title}</p>
+          <p>${s.artist}</p>
+        </div>
+      </div>`)
+  //  <div class="row card my-3 d-flex" style="width: 15rem; my-2">
+  //   <img src="${s.albumArt}" class="action card-img-left" alt="${s.album}" onclick="app.songsController.getActive(${s.id})">
+  //   <div class="card-body">
+  //     <h5 class="card-title">${s.title}</h5>
+  //     <p class="card-text">${s.artist}</p>
+  //   </div>
+  // </div>
+
   document.getElementById('songs').innerHTML = template
 }
 /**Draws the Users saved songs to the page */

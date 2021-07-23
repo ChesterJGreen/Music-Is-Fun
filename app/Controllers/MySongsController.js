@@ -5,7 +5,7 @@ function _drawMySongs() {
   const songs = ProxyState.playlist
   const activeSong = ProxyState.activeSong
   let template = ''
-  songs.forEach(s => template += `<li>${s.title}</li>`)
+  songs.forEach(s => template += `<li class="action" onclick"app.mySongsController.getActive()>${s.title}</li>`)
   if (!template) {
     template += `<p>No songs in the playlist</p>`
   }
